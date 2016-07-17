@@ -1,7 +1,3 @@
-<div class="span" >
-  <% @result.each do |res| %>
-    <% if res.include?('reporttype') %>
-      <%= res %> <br>
-    <% end %>
-  <% end %>
-</div>
+<%= line_chart [{name: "First Plot", data: @my_dict}] %>
+  
+  

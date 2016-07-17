@@ -11,13 +11,23 @@ class PagesController < ApplicationController
   def about
     
   end
+      
+  
+  
   
   def content
-    
+    @my_dict = Hash.new
     OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
-    url = 'https://api.fda.gov/drug/event.json?api_key=hQ4jRHCt6WIYjcDYHBvIxIbMNPhlg5Hyw9WLhpLQ&search=_missing_:companynumb&limit=1'
+    url = 'https://api.fda.gov/drug/event.json?api_key=hQ4jRHCt6WIYjcDYHBvIxIbMNPhlg5Hyw9WLhpLQ&count=receiptdate'
     response = open(url).read
-    @result = response.split("\n")
+    result = JSON.parse(response)
+    @var_result = result['results']
+    @var_result.each do |res|
+      @my_dict[res['time']] = res['count']
+    end
+    
+      
+        
     
   end
   
