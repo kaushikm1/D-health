@@ -3,19 +3,30 @@ $navbar-default-bg: #08088A;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.center {
-  text-align: center;
+.navfont {
+display: inline;
+color: red;                        
+font-family: Garamond;
+font-size: 1.5em;
+padding: 5px 20px;
 }
 
-.jumbotron {
+.center {
+  text-align: center;
+  font-style: italic;
+}
+
+.jumbotron1 {
+  
 
 background-image: asset-url('BPSNQ430BV.jpg');
-
 background-size: cover;
-
+overflow: hidden;
 height: 700px;
 
 }
+
+
 
 footer {
 
@@ -56,6 +67,22 @@ float: left;
 margin-left: 15px;
 
 }
+
+.logo {
+margin-left: 200px;
+width: auto;
+height: auto;
+
+}
+
+.logo1 {
+margin-left: 250px;
+margin-right: 150px;
+width: auto;
+height: auto;
+}
+
+
 
 
 

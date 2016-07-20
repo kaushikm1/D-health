@@ -25,9 +25,13 @@ class PagesController < ApplicationController
     @var_result.each do |res|
       @my_dict[res['time']] = res['count']
     end
+  end
+  
+  def resource
     
-      
-        
+  end
+  
+  def contact
     
   end
   
