@@ -11,11 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717035530) do
-
-  create_table "tables", force: :cascade do |t|
-    t.string "time"
-    t.string "count"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
