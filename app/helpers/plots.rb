@@ -15,13 +15,13 @@ module Plots
     my_dict = Hash.new
     OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
     #url = 'https://api.fda.gov/device/510k.json?api_key=hQ4jRHCt6WIYjcDYHBvIxIbMNPhlg5Hyw9WLhpLQ&count=state'
-    url = 'https://api.fda.gov/device/510k.json?count=state'
+    url = 'https://api.fda.gov/device/510k.json?count=state&search=medical_specialty_description:"Ophthalmic"'
     response = open(url).read
     result = JSON.parse(response)
     var_result = result['results']
     var_result.each do |res|
-      if res['count'] > 10
-        my_dict[res['term']] = res['count']
+      if res['count'] > 5
+        my_dict[res['term'].upcase] = res['count']
       end
     end
     return my_dict
@@ -61,8 +61,17 @@ module Plots
   end
   
   def my_helperFour
+    states_list = []
+    year_list = ['[1990-01-01+TO+2000-01-01]','[2000-01-01+TO+2010-01-01]']
+    @plotOne.each do |key,value|
+      states_list.push(key)
+    end
+    states_list.each do |state|
+      url = 'https://api.fda.gov/device/510k.json?limit=100&search=search=medical_specialty_description:"Ophthalmic"+AND+state:' + state
+      
+    end
     
-    url = 'https://api.fda.gov/device/510k.json?limit=100&search=state:"ca"'
+    
     
   end
   

@@ -1,21 +1,35 @@
 
-<%= column_chart [{name: "Column Chart", data: @plotOne}]%>
+<div class="container page_header">
+  <div class="jumbotron text-center">
+    <h1>ophthalmology</h1>
+    <p>Some sub heading</p> 
+  </div>
+</div>
 
-<div class = "explanation">
+<div class="graph">
+  <%= column_chart [{name: "Number of Applicants from each state", data: @plotOne}]%>
+</div>
+
+<div class = "well explanation">
   <p>Column chart for comparison between state and submissions</p>
 </div>
 
-<%= bar_chart [{name: "Bar Chart", data: @plotTwo}] %>
+<div class = "graph">
+  <%= bar_chart [{name: "How applications differ with respect to time", data: @plotTwo}] %>
+</div>
 
-<div class="explanation">
+<div class="explanation well">
   <p>Column chart for comparison between decision_date and submissions</p>
 </div>
 
-<%= bar_chart [{name: "Bar Chart", data: @plotThree}] %>
-
-<div class="explanation">
-  <p>Bar chart for comparison between device classes and submissions from 1990-2010</p>
+<div class = "graph">
+  <%= bar_chart [{name: "Relationship between device_class and applications", data: @plotThree}] %>
 </div>
+
+<div class="explanation well">
+  <p>Chart for comparison between device_classes</p>
+</div>
+
 
 <%= line_chart [
   {name: "Series A", data: @test[0]},
