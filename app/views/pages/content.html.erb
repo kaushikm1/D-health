@@ -1,5 +1,18 @@
 
+<div class = "graph">
+  <%= column_chart [{name: "Column Chart", data: @plotOne}]%>
+</div>
+<div class = "explanation">
+  <p>Column chart for comparison between state and submissions</p>
+</div>
 
-<%= line_chart [{name: "First Plot", data: @my_dict}] %>
-  
-  
+<%= bar_chart [{name: "Bar Chart", data: @plotTwo}] %>
+<div class="explanation">
+  <p>Column chart for comparison between decision_date and submissions</p>
+</div>
+
+<%= bar_chart [{name: "Bar Chart", data: @plotThree}] %>
+<div class="explanation">
+  <p>Bar chart for comparison between device classes and submissions from 1990-2010</p>
+</div>
+
