@@ -17,7 +17,7 @@ include Plots
     @plotOne = my_helperOne
     @plotTwo = my_helperTwo
     @plotThree = my_helperThree
-    @test = [@plotOne,@plotTwo]
+    @test = my_helperFour
     
     
   end

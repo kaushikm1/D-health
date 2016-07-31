@@ -60,20 +60,34 @@ module Plots
     return my_dict
   end
   
+
   def my_helperFour
+    OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
+    @result = []
     states_list = []
-    year_list = ['[1990-01-01+TO+2000-01-01]','[2000-01-01+TO+2010-01-01]']
     @plotOne.each do |key,value|
       states_list.push(key)
+    states_list = states_list[0..4]
     end
     states_list.each do |state|
-      url = 'https://api.fda.gov/device/510k.json?limit=100&search=search=medical_specialty_description:"Ophthalmic"+AND+state:' + state
-      
+      @result.push(stateCount(state))
     end
+      
+  end
     
-    
+  def stateCount(state)
+    my_dict = Hash.new
+    year_list = [['[1980-01-01+TO+1989-01-01]','80s'],['[1990-01-01+TO+2000-01-01]','90s'],['[2000-01-01+TO+2010-01-01]','00s']]
+    for index in 0..2
+      url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + '+AND+date_received:' + year_list[index][0]
+      total = findingTotal(url)
+      my_dict[year_list[index][1]] = total
+    end
+    return [state,my_dict]
     
   end
+    
+    
   
   
   
