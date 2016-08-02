@@ -11,18 +11,48 @@ font-size: 1.5em;
 padding: 5px 20px;
 }
 
-.center {
-  text-align: center;
-  font-style: italic;
+.navbarlogo {
+
+position: relative;
+height: 50px;
+width: 100px;
 }
 
 .jumbotron1 {
-  
 
 background-image: asset-url('BPSNQ430BV.jpg');
 background-size: cover;
+opacity: 0.5;
 overflow: hidden;
 height: 700px;
+
+}
+
+.hometext {
+text-align: center;
+position: absolute;
+top: 200px; 
+left: 0; 
+width: 100%;
+
+}
+
+#homeheader {
+font-weight: bold;
+font-size: 100px;
+
+}
+
+#homepara {
+
+font-style: italic;
+font-size: 40px;
+
+}
+
+.abouttext {
+  
+text-align: center;
 
 }
 
@@ -68,19 +98,6 @@ margin-left: 15px;
 
 }
 
-.logo {
-margin-left: 200px;
-width: auto;
-height: auto;
-
-}
-
-.logo1 {
-margin-left: 250px;
-margin-right: 150px;
-width: auto;
-height: auto;
-}
 
 .graph {
 display: block;
