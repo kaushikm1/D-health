@@ -15,9 +15,12 @@ include Plots
       
   def content
     @plotOne = my_helperOne
-    @plotTwo = my_helperTwo
-    @plotThree = my_helperThree
+    #@plotTwo = my_helperTwo
+    #@plotThree = my_helperThree
     @test = my_helperFour
+    #@yearly = yearly_plot
+    #@classTwoyearly = classtwo_yearly_plot
+    
     
     
   end

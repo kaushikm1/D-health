@@ -43,6 +43,27 @@ module Plots
     return my_dict
   end
   
+  def yearly_plot
+    my_dict = Hash.new
+    for index in 0..16
+      if index < 10
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
+        [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]'
+        total = findingTotal(url)
+        year = '200' + index.to_s
+        my_dict[year] = total
+      else
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
+        [20' + index.to_s + '-01-01+TO+20' + index.to_s + '-12-31]'
+        total = findingTotal(url)
+        year = '20' + index.to_s
+        my_dict[year] = total
+      end
+    end
+    return my_dict
+    
+  end
+  
   def my_helperThree
     my_dict = {"1" => 0, "2" => 0, "3" => 0}
     OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
@@ -60,6 +81,28 @@ module Plots
     return my_dict
   end
   
+  
+  
+  def classtwo_yearly_plot
+    my_dict = Hash.new
+    for index in 0..16
+      if index < 10
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
+        [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]+AND+device_class:2'
+        total = findingTotal(url)
+        year = '200' + index.to_s
+        my_dict[year] = total
+      else
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
+        [20' + index.to_s + '-01-01+TO+20' + index.to_s + '-12-31]+AND+device_class:2'
+        total = findingTotal(url)
+        year = '20' + index.to_s
+        my_dict[year] = total
+      end
+    end
+    return my_dict
+  end
+  
 
   def my_helperFour
     OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
@@ -67,10 +110,10 @@ module Plots
     states_list = []
     @plotOne.each do |key,value|
       states_list.push(key)
-    states_list = states_list[0..4]
+    states_list = states_list[0..1]
     end
     states_list.each do |state|
-      @result.push(stateCount(state))
+      @result.push(states_yearly_plot(state))
     end
       
   end
@@ -85,6 +128,26 @@ module Plots
     end
     return [state,my_dict]
     
+  end
+  
+  def states_yearly_plot(state)
+    my_dict = Hash.new
+    for index in 0..5
+      if index < 10
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
+        [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]'
+        total = findingTotal(url)
+        year = '200' + index.to_s
+        my_dict[year] = total
+      else
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
+        [20' + index.to_s + '-01-01+TO+20' + index.to_s + '-12-31]'
+        total = findingTotal(url)
+        year = '20' + index.to_s
+        my_dict[year] = total
+      end
+    end
+    return [state, my_dict]
   end
     
     
