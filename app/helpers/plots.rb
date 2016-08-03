@@ -45,7 +45,7 @@ module Plots
   
   def yearly_plot
     my_dict = Hash.new
-    for index in 0..16
+    for index in 0..15
       if index < 10
         url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
         [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]'
@@ -85,7 +85,7 @@ module Plots
   
   def classtwo_yearly_plot
     my_dict = Hash.new
-    for index in 0..16
+    for index in 0..15
       if index < 10
         url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+date_received:
         [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]+AND+device_class:2'

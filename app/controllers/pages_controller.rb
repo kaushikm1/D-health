@@ -15,8 +15,6 @@ include Plots
       
   def content
     @plotOne = my_helperOne
-    @plotThree = my_helperThree
-    #@test = my_helperFour
     
     
     
@@ -33,6 +31,7 @@ include Plots
   
   def device
     
+    @plotThree = my_helperThree
     @classTwoyearly = classtwo_yearly_plot
     
   end
