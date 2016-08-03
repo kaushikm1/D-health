@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
   get 'content', to: 'pages#content'
+  get 'time', to: 'pages#time'
+  get 'device', to: 'pages#device'
   get 'resource', to: 'pages#resource'
   get 'contact', to: 'pages#contact'
 

@@ -107,47 +107,48 @@ module Plots
   def my_helperFour
     OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
     @result = []
-    states_list = []
-    @plotOne.each do |key,value|
-      states_list.push(key)
-    states_list = states_list[0..1]
-    end
-    states_list.each do |state|
-      @result.push(states_yearly_plot(state))
-    end
+    #@states_list = []
+    #@plotOne.each do |key,value|
+      #@states_list.push(key)
+    @states_list = ["ca"]
+    states_yearly_plot
       
   end
     
   def stateCount(state)
-    my_dict = Hash.new
-    year_list = [['[1980-01-01+TO+1989-01-01]','80s'],['[1990-01-01+TO+2000-01-01]','90s'],['[2000-01-01+TO+2010-01-01]','00s']]
-    for index in 0..2
-      url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + '+AND+date_received:' + year_list[index][0]
-      total = findingTotal(url)
-      my_dict[year_list[index][1]] = total
+    states_list.each do |state|
+      my_dict = Hash.new
+      year_list = [['[1980-01-01+TO+1989-01-01]','80s'],['[1990-01-01+TO+2000-01-01]','90s'],['[2000-01-01+TO+2010-01-01]','00s']]
+      for index in 0..2
+        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + '+AND+date_received:' + year_list[index][0]
+        total = findingTotal(url)
+        my_dict[year_list[index][1]] = total
+      end
+      @result.push([state,my_dict])
     end
-    return [state,my_dict]
-    
   end
   
-  def states_yearly_plot(state)
-    my_dict = Hash.new
-    for index in 0..5
-      if index < 10
-        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
-        [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]'
-        total = findingTotal(url)
-        year = '200' + index.to_s
-        my_dict[year] = total
-      else
-        url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
-        [20' + index.to_s + '-01-01+TO+20' + index.to_s + '-12-31]'
-        total = findingTotal(url)
-        year = '20' + index.to_s
-        my_dict[year] = total
+  def states_yearly_plot
+    OpenSSL::SSL.const_set(:VERIFY_PEER, OpenSSL::SSL::VERIFY_NONE)
+    @states_list.each do |state|
+      my_dict = Hash.new
+      for index in 0..1
+        if index < 10
+          url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
+          [200' + index.to_s + '-01-01+TO+200' + index.to_s + '-12-31]'
+          total = findingTotal(url)
+          year = '200' + index.to_s
+          my_dict[year] = total
+        else
+          url = 'https://api.fda.gov/device/510k.json?limit=100&search=medical_specialty_description:"Ophthalmic"+AND+state:' + state + 'date_received:
+          [20' + index.to_s + '-01-01+TO+20' + index.to_s + '-12-31]'
+          total = findingTotal(url)
+          year = '20' + index.to_s
+          my_dict[year] = total
+        end
       end
+      @result.push([state,my_dict])
     end
-    return [state, my_dict]
   end
     
     

@@ -1,0 +1,16 @@
+<%= render 'layouts/pagination' %>
+
+<div class="container page_header">
+  <div class="jumbotron text-center">
+    <h1>Ophthalmology</h1>
+    <p>Some sub heading</p> 
+  </div>
+</div>
+
+<div class = "graph">
+  <%= column_chart [{name: "Relationship between device_class and applications", data: @plotThree}], xtitle: "Device class", ytitle: "Number of applications" %>
+</div>
+
+<div class = "graph">
+  <%= line_chart [{name:"Class Two", data: @classTwoyearly}], xtitle: "Years", ytitle: "Number of applications" %>
+</div>

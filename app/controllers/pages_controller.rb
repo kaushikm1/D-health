@@ -15,13 +15,25 @@ include Plots
       
   def content
     @plotOne = my_helperOne
-    #@plotTwo = my_helperTwo
-    #@plotThree = my_helperThree
-    @test = my_helperFour
-    #@yearly = yearly_plot
-    #@classTwoyearly = classtwo_yearly_plot
+    @plotThree = my_helperThree
+    #@test = my_helperFour
     
     
+    
+    
+  end
+  
+  def time
+    
+    @plotTwo = my_helperTwo
+    @yearly = yearly_plot
+    
+    
+  end
+  
+  def device
+    
+    @classTwoyearly = classtwo_yearly_plot
     
   end
   

@@ -1,13 +1,14 @@
+<%= render 'layouts/pagination' %>
 
 <div class="container page_header">
   <div class="jumbotron text-center">
-    <h1>ophthalmology</h1>
+    <h1>Ophthalmology</h1>
     <p>Some sub heading</p> 
   </div>
 </div>
 
 <div class="graph">
-  <%#= column_chart [{name: "Number of Applicants from each state", data: @plotOne}], xtitle: "States", 
+  <%= column_chart [{name: "Number of Applicants from each state", data: @plotOne}], xtitle: "States", 
   ytitle: "Number of applicants" %> 
 </div>
 
@@ -15,23 +16,12 @@
   <p>Column chart for comparison between state and submissions</p>
 </div>
 
-<div class = "graph">
-  <%#= column_chart [{name: "How applications differ with respect to time", data: @plotTwo}], ytitle: "Number of applications", xtitle: "Time interval" %>
-</div>
-<div class = "graph">
-  <%#= line_chart [{name: "Trend of applications from 2000-2016", data: @yearly}], ytitle: "Number of applications", xtitle: "Years" %>  
-</div>
-
-<div class = "graph">
-  <%#= column_chart [{name: "Relationship between device_class and applications", data: @plotThree}], xtitle: "Device class", ytitle: "Number of applications" %>
-</div>
-
-<%#= line_chart [{name:"Class Two", data: @classTwoyearly}], xtitle: "Years", ytitle: "Number of applications" %>
 
 
 
 
-<%= line_chart [
+
+<%#= line_chart [
   {name: @result[0][0], data: @result[0][1]},
   {name: @result[1][0], data: @result[1][1]},
 ], xtitle: "Time interval", ytitle: "Number of applications" %>
