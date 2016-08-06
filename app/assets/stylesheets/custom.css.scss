@@ -18,6 +18,16 @@ height: 60px;
 width: 150px;
 }
 
+.text-center h1 {
+font-weight: bold;
+font-size: 60px;
+}
+
+.text-center p {
+font-style: italic;
+font-size: 40px;
+}
+
 .jumbotron1 {
 
 background-image: asset-url('BPSNQ430BV.jpg');
@@ -115,14 +125,24 @@ margin-left: 15px;
 
 }
 
+.right {
+display: block;
+float: right;
+width: 400px;
+padding-top: 80px;
+}
+
 
 .graph {
 display: block;
-margin: auto;
+float: left;
 height: 400px;
 width: 600px;
-padding-top: 80px;
+padding-top: 50px;
+padding-bottom: 50px;
 }
+
+
 
 .explanation {
 text-align: center;    

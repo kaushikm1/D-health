@@ -1,20 +1,27 @@
 <%= render 'layouts/pagination' %>
 
 <div class="container page_header">
-  <div class="jumbotron text-center">
-    <h1>Ophthalmology</h1>
-    <p>Some sub heading</p> 
+  <div class="text-center">
+    <h1>States</h1>
+    <p>Looking at the relationship between States, 510k Applicants and Applications</p> 
   </div>
 </div>
 
-<div class="graph">
-  <%= column_chart [{name: "Number of Applicants from each state", data: @plotOne}], xtitle: "States", 
-  ytitle: "Number of applicants" %> 
+<div class="container">
+  <div class="graph">
+    <%= column_chart [{name: "Number of Applicants from each state", data: @plotOne}], xtitle: "States", 
+    ytitle: "Number of applicants" %> 
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>This plot looks at the number of applicants from 1990 - 2015 and categorizes the results
+    by state. </p>
+  </div>
 </div>
 
-<div class = "well explanation">
-  <p>Column chart for comparison between state and submissions</p>
-</div>
+<%= render 'layouts/pagination' %>
+
+<%= render 'layouts/footer' %>
 
 
 

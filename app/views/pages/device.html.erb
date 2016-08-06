@@ -1,16 +1,39 @@
 <%= render 'layouts/pagination' %>
 
 <div class="container page_header">
-  <div class="jumbotron text-center">
-    <h1>Ophthalmology</h1>
-    <p>Some sub heading</p> 
+  <div class="text-center">
+    <h1>Device</h1>
+    <p>Looking at the applications from 1990 to 2015 and under which class these applications were categorized</p> 
   </div>
 </div>
 
-<div class = "graph">
-  <%= column_chart [{name: "Relationship between device_class and applications", data: @plotThree}], xtitle: "Device class", ytitle: "Number of applications" %>
+<div class = "container">
+  <div class = "graph">
+    <%= column_chart [{name: "Relationship between device_class and applications", data: @plotThree}], xtitle: "Device class", ytitle: "Number of applications" %>
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>From the applications that were made from the year 1990 til the year 2015, the graph shows what device class
+    these applications were filed under.</p>
+  </div>
+  <div class = "graph">
+    <%= line_chart [{name:"Class Two from 1990-1999", data: @classTwoyearly90s}], xtitle: "Years", ytitle: "Number of applications" %>
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>For the device class that had the most number of applications, we look at the trend in applications from the year 1990
+    til 1999.</p>
+  </div>
+  <div class = "graph">
+    <%= line_chart [{name:"Class Two from 2000-2015", data: @classTwoyearly00s}], xtitle: "Years", ytitle: "Number of applications" %>
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>For the device class that had the most number of applications, we look at the trend in applications from the year 2000 til the
+    year 2015</p>
+  </div>
 </div>
 
-<div class = "graph">
-  <%= line_chart [{name:"Class Two", data: @classTwoyearly}], xtitle: "Years", ytitle: "Number of applications" %>
-</div>
+<%= render 'layouts/pagination' %>
+
+<%= render 'layouts/footer' %>

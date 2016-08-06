@@ -1,17 +1,40 @@
 <%= render 'layouts/pagination' %>
 
 <div class="container page_header">
-  <div class="jumbotron text-center">
-    <h1>Ophthalmology</h1>
-    <p>Some sub heading</p> 
+  <div class="text-center">
+    <h1>Time</h1>
+    <p>Looking into the trend in 510k applications over the past three decades</p> 
   </div>
 </div>
 
+<div class="container">
+  <div class = "graph">
+    <%= column_chart [{name: "How applications differ with respect to time", data: @plotTwo}], ytitle: "Number of applications", xtitle: "Time interval" %>
+  </div>  
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>In the two given time intervals, the plot shows significantly more applications in the 90s. The
+    graphs below look into the yearly trend in these two time intervals.</p>
+  </div>
+  <div class="graph">
+    <%= line_chart [{name: "Trend of applications from 2000-2015", data: @yearly2000s}], ytitle: "Number of applications", xtitle: "Years" %>
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>This graph follows the trend of applications from the year 2000 til the year 2015</p>
+  </div>
+  <div class="graph">
+    <%= line_chart [{name: "Trend of applications from 1990-1999", data: @yearly90s}], ytitle: "Number of applications", xtitle: "Years" %>
+  </div>
+  <div class="right">
+    <h1>What does this mean?</h1>
+    <p>This graph follows the trend of applications from the year 1990 til the year 1999</p>
+  </div>
+</div>
 
-<div class = "graph">
-  <%= column_chart [{name: "How applications differ with respect to time", data: @plotTwo}], ytitle: "Number of applications", xtitle: "Time interval" %>
-</div>
-<div class = "graph">
-  <%= line_chart [{name: "Trend of applications from 2000-2016", data: @yearly}], ytitle: "Number of applications", xtitle: "Years" %>  
-</div>
+<%= render 'layouts/pagination' %>
+
+<%= render 'layouts/footer' %>
+
+
 

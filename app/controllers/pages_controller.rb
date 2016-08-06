@@ -24,7 +24,8 @@ include Plots
   def time
     
     @plotTwo = my_helperTwo
-    @yearly = yearly_plot
+    @yearly2000s = yearly_plot(0,15)
+    @yearly90s = yearly_plot(90,99)
     
     
   end
@@ -32,7 +33,8 @@ include Plots
   def device
     
     @plotThree = my_helperThree
-    @classTwoyearly = classtwo_yearly_plot
+    @classTwoyearly90s = classtwo_yearly_plot(90,99)
+    @classTwoyearly00s = classtwo_yearly_plot(0,15)
     
   end
   
