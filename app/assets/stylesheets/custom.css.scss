@@ -158,13 +158,21 @@ text-align: center;
 
 }
 
-.bgColor {
-  
-background-color: blue;
-height: 100%;
-width: 100%;
-  
+.center {
+text-align: center;
+padding-bottom: 100px;
 }
+
+
+
+.breadSize {
+display: inline;
+font-family: Garamond;
+font-weight: bold;
+font-size: 30px;
+padding: 5px 20px;
+} 
+  
 
 
 

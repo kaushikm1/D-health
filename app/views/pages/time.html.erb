@@ -32,6 +32,11 @@
   </div>
 </div>
 
+<%= line_chart [{name: "Trend of applications from 1990-2015", data: @totalyears}], ytitle: "Number of applications", xtitle: "Years" %>
+<div class="center">
+  <h1>What does this mean?</h1>
+  <p>This graph shows the overall trend from 1990 - 2015</p>
+</div>
 <%= render 'layouts/pagination' %>
 
 <%= render 'layouts/footer' %>
