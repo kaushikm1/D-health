@@ -3,7 +3,7 @@
 <div class="container page_header">
   <div class="text-center">
     <h1>Time</h1>
-    <p>Looking into the trend in 510k applications over the past three decades</p> 
+    <p>Trend in 510k applications (for ophthalmic medical devices) over past 3 decades</p> 
   </div>
 </div>
 
@@ -12,30 +12,35 @@
     <%= column_chart [{name: "How applications differ with respect to time", data: @plotTwo}], ytitle: "Number of applications", xtitle: "Time interval" %>
   </div>  
   <div class="right">
-    <h1>What does this mean?</h1>
-    <p>In the two given time intervals, the plot shows significantly more applications in the 90s. The
-    graphs below look into the yearly trend in these two time intervals.</p>
+    <h1>Description</h1>
+    <p>Comparing the number of 510k applications (for ophthalmic devices), the 90s had significantly more applications than the 15 years after that.
+    The graphs below look into the yearly trend within these time intervals.</p>
   </div>
+</div>
+<div class="line-separator"></div>
+<div class="container">
   <div class="graph">
     <%= line_chart [{name: "Trend of applications from 2000-2015", data: @yearly2000s}], ytitle: "Number of applications", xtitle: "Years" %>
   </div>
   <div class="right">
-    <h1>What does this mean?</h1>
-    <p>This graph follows the trend of applications from the year 2000 til the year 2015</p>
+    <h1>Description</h1>
+    <p>This graph follows the trend of 510k applications (for ophthalmic devices) from the year 2000 till the year 2015. In the last 15 years, the number of applications has been relatively consistent around 70.</p>
   </div>
+</div>
+<div class="line-separator"></div>
   <div class="graph">
     <%= line_chart [{name: "Trend of applications from 1990-1999", data: @yearly90s}], ytitle: "Number of applications", xtitle: "Years" %>
   </div>
   <div class="right">
-    <h1>What does this mean?</h1>
-    <p>This graph follows the trend of applications from the year 1990 til the year 1999</p>
+    <h1>Description</h1>
+    <p>This graph follows the trend of 510k applications (for ophthalmic deviceS) from the year 1990 till the year 1999. Overall, the number of applications in this decade is almost twice that of the next decade. Within this 90s itself, there was a sharp increase in 1994.</p>
   </div>
 </div>
-
+<div class="line-separator"></div>
 <%= line_chart [{name: "Trend of applications from 1990-2015", data: @totalyears}], ytitle: "Number of applications", xtitle: "Years" %>
 <div class="center">
-  <h1>What does this mean?</h1>
-  <p>This graph shows the overall trend from 1990 - 2015</p>
+  <h1>Description</h1>
+  <p>This graph follows the trend of 510k applications (for ophthalmic deviceS) from the year 1990 till the year 2015.</p>
 </div>
 <%= render 'layouts/pagination' %>
 
